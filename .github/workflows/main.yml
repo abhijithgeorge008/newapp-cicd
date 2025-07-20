@@ -32,4 +32,4 @@ jobs:
           cd /home/ubuntu/app
           docker stop myapp || true && docker rm myapp || true
           docker build -t myapp .
-          docker run -d -p 80:80 --name myapp myapp
+          docker run -d -p 81:80 --name myapp myapp

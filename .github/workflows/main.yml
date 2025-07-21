@@ -40,7 +40,7 @@ jobs:
     - name: Configure Kubeconfig
       run: |
         mkdir -p $HOME/.kube
-        cat <<EOF > $HOME/.kube/config
+        cat > $HOME/.kube/config <<EOF
 ${{ secrets.KUBECONFIG_CONTENT }}
 EOF
         chmod 600 $HOME/.kube/config

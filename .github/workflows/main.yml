@@ -12,6 +12,7 @@ jobs:
     env:
       IMAGE_NAME: thoufeek/demoapp
       TAG: latest
+      KUBECONFIG: $HOME/.kube/config
 
     steps:
     - name: Checkout Code
@@ -32,9 +33,9 @@ jobs:
 
     - name: Configure Kubeconfig
       run: |
-        mkdir -p ~/.kube
-        echo "${{ secrets.KUBECONFIG_CONTENT }}" > ~/.kube/config
-        chmod 600 ~/.kube/config
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG_CONTENT }}" > $KUBECONFIG
+        chmod 600 $KUBECONFIG
 
     - name: Deploy to EKS
       run: |

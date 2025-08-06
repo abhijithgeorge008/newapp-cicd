@@ -2,124 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NeoVerse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Interface</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle at center, #0f0f0f 0%, #000000 100%);
-      color: #00fff7;
+      min-height: 100vh;
+      background: linear-gradient(115deg, #020024 0%, #00d4ff 55%, #090979 100%);
+      font-family: 'Orbitron', Arial, sans-serif;
+      color: #f7f7f7;
       overflow-x: hidden;
     }
 
-    header {
+    .background-anim {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+      filter: blur(2px);
+      animation: float 12s infinite linear alternate;
+    }
+    .circle1 { width: 400px; height: 400px; top: 10%; left: 5%; background: #00fff2; animation-delay: 0s;}
+    .circle2 { width: 200px; height: 200px; top: 70%; left: 60%; background: #ff0099; animation-delay: 4s;}
+    .circle3 { width: 300px; height: 300px; top: 30%; left: 80%; background: #00ff99; animation-delay: 2s;}
+
+    @keyframes float {
+      0% { transform: translateY(0);}
+      100% { transform: translateY(-60px);}
+    }
+
+    .glass-overlay {
+      position: relative;
+      margin: 80px auto;
+      max-width: 460px;
+      background: rgba(30, 33, 54, 0.76);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(65,225,242, 0.32);
+      padding: 36px 50px;
+      z-index: 2;
       text-align: center;
-      padding: 60px 20px;
     }
 
     h1 {
-      font-size: 3em;
-      text-shadow: 0 0 15px #00fff7;
-      letter-spacing: 4px;
+      font-size: 2.6rem;
+      letter-spacing: 3px;
+      color: #00fff2;
+      text-shadow: 0 0 8px #0ee5ff99, 0 0 20px #08002877;
+      margin-bottom: 14px;
     }
-
-    nav {
-      text-align: center;
-      margin-bottom: 40px;
+    p {
+      font-size: 1.22rem;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      color: #eefdffa0;
     }
-
-    nav a {
-      text-decoration: none;
-      color: #00fff7;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: 0.3s;
-      padding: 10px 15px;
-      border: 1px solid #00fff7;
-      border-radius: 5px;
-      box-shadow: 0 0 10px #00fff7;
+    .futuristic-btn {
+      margin-top: 18px;
+      background: linear-gradient(90deg, #00fff2 0%, #ff0099 100%);
+      padding: 12px 42px;
+      border: none;
+      border-radius: 50px;
+      color: #191c3a;
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 1.08rem;
+      letter-spacing: 2px;
+      box-shadow: 0 0 18px #00fff288, 0 0 32px #ff009955;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
     }
-
-    nav a:hover {
-      background-color: #00fff7;
-      color: #000;
-      box-shadow: 0 0 20px #00fff7;
+    .futuristic-btn:hover {
+      background: linear-gradient(90deg, #ff0099 0%, #00fff2 100%);
+      color: #fff;
+      box-shadow: 0 0 28px #00fff2cc, 0 0 52px #ff0099aa;
     }
-
-    section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .glow-box {
-      border: 1px solid #00fff7;
-      border-radius: 10px;
-      padding: 30px;
-      margin: 20px 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      box-shadow: 0 0 20px #00fff7;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #888;
-      border-top: 1px solid #222;
-      margin-top: 40px;
-    }
-
-    /* Animations */
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 10px #00fff7;
+    /* Responsive */
+    @media (max-width: 600px) {
+      .glass-overlay {
+        padding: 24px 10px;
+        max-width: 95vw;
       }
-      50% {
-        box-shadow: 0 0 25px #00fff7;
+      h1 {
+        font-size: 1.4rem;
       }
-      100% {
-        box-shadow: 0 0 10px #00fff7;
-      }
-    }
-
-    .glow-box {
-      animation: pulse 3s infinite;
     }
   </style>
+
+  <!-- Futuristic font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="background-anim">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+  </div>
 
-  <header>
-    <h1>🚀 Welcome to Cokenet</h1>
-    <p>The future is now. Experience the digital frontier.</p>
-  </header>
-
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Explore</a>
-    <a href="#">Missions</a>
-    <a href="#">Contact</a>
-  </nav>
-
-  <section>
-    <div class="glow-box">
-      <h2>⚡ Next-Gen Tech</h2>
-      <p>Discover cutting-edge AI, quantum computing, and interstellar innovations reshaping tomorrow.</p>
-    </div>
-
-    <div class="glow-box">
-      <h2>🌐 Hyperconnected World</h2>
-      <p>Stay connected across dimensions. The NeoVerse links minds, machines, and galaxies.</p>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2085 NeoVerse. All rights reserved. | Designed for the future.
-  </footer>
-
+  <div class="glass-overlay">
+    <h1>WELCOME TO THE FUTURE</h1>
+    <p>
+      Explore tomorrow's technology.<br>
+      Step into a world of innovative interfaces, neon lights, and immersive experiences — reimagined for the next generation.
+    </p>
+    <button class="futuristic-btn">Get Started</button>
+  </div>
 </body>
 </html>

@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  cicd:
     runs-on: [self-hosted]
 
     steps:
